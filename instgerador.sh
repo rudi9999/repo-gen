@@ -74,7 +74,7 @@ echo "$Key" > $IVAR
 cp $HOME/lista-arq /etc/SCRIPT
 cp /bin/http-server.sh /etc/SCRIPT
 mv /etc/SCRIPT/http-server.sh /etc/SCRIPT/http-server.py
-wget https://raw.githubusercontent.com/ENZOLU/KEYGEN-ADM/master/gerador/gerar.sh &>/dev/null
+wget https://raw.githubusercontent.com/theonejpas/gen/GENERADOR-DE-GENERADORES/gerador/gerar.sh &>/dev/null
 mv gerar.sh /etc/SCRIPT
 cd /etc/SCRIPT
 rm -rf FERRAMENTA KEY KEY! INVALIDA!
