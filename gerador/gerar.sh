@@ -81,7 +81,7 @@ if [[ $readvalue = @(b|B) ]]; then
  arqslist="$BASICINST"
  for arqx in `echo "${arqslist}"`; do
  [[ -e ${DIR}/${KEY}/$arqx ]] && continue #ANULA ARQUIVO CASO EXISTA
- [[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${KEY}/$arqx || cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/ &> /dev/null
+ cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/ &> /dev/null
  echo "$arqx" >> ${DIR}/${KEY}/${LIST}
  done
 elif [[ $readvalue = @(x|X) ]]; then
@@ -90,7 +90,7 @@ read -p "KEY DE ACTUALIZACIÓN?: [Y/N]: " -e -i n attGEN
 [[ $(echo $nombrevalue|grep -w "FIXA") ]] && nombrevalue+=[GERADOR]
  for arqx in `ls $SCPT_DIR`; do
   [[ -e ${DIR}/${KEY}/$arqx ]] && continue #ANULA ARQUIVO CASO EXISTA
-  [[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${KEY}/$arqx || cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/
+  cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/
  echo "$arqx" >> ${DIR}/${KEY}/${LIST}
  echo "Gerador" >> ${DIR}/${KEY}/GERADOR
  done
@@ -103,7 +103,7 @@ else
  #UNE ARQ
  [[ -e ${DIR}/${KEY}/${arq_list[$arqx]} ]] && continue #ANULA ARQUIVO CASO EXISTA
  rm ${SCPT_DIR}/*.x.c &> /dev/null
- [[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/${arq_list[$arqx] &> /dev/null} -o ${DIR}/${KEY}/${arq_list[$arqx]} || cp ${SCPT_DIR}/${arq_list[$arqx]} ${DIR}/${KEY}/
+ cp ${SCPT_DIR}/${arq_list[$arqx]} ${DIR}/${KEY}/
  echo "${arq_list[$arqx]}" >> ${DIR}/${KEY}/${LIST}
  done
 echo "TRUE" >> ${DIR}/${KEY}/FERRAMENTA
